@@ -1,0 +1,32 @@
+#gameTimer
+{
+  width: 250px;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 150%
+}
+
+p.green
+{
+  width: 50px;
+  background-color: #000000;
+  color: green;
+  font-size: 250%
+
+}
+
+p.yellow
+{
+  width: 50px;
+  background-color: #000000;
+  color: yellow;
+  font-size: 250%
+}
+
+p.red
+{
+  width: 50px;
+  background-color: #000000;
+  color: red;
+  font-size: 250%
+}

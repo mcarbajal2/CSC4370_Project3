@@ -1,16 +1,43 @@
 function startTimer(duration)
 {
+  var timeLeft = duration;
   var countDown = function()
   {
-    if(duration > 0)
+    if(timeLeft >= duration/2)
     {
-      document.getElementById("gameTimer").innerHTML = "You have " + duration.toFixed(2) + " seconds remaining!";
-      duration -= .010;
+      var output = "<div id = gameTimer>You have ";
+      output += "<p class = green>"
+      output += timeLeft.toFixed(2);
+      output += " </p>seconds remaining!"
+      output += "</div>";
+      $("#gameTimer").replaceWith(output);
+      timeLeft -= .010;
     }
-    else if (duration <= 0)
+    else if(timeLeft < duration/2 && timeLeft >= duration/4)
+    {
+      var output = "<div id = gameTimer>You have ";
+      output += "<p class = yellow>"
+      output += timeLeft.toFixed(2);
+      output += " </p>seconds remaining!"
+      output += "</div>";
+      $("#gameTimer").replaceWith(output);
+      timeLeft -= .010;
+    }
+    else if(timeLeft < duration/4 && timeLeft >= 0)
+    {
+      var output = "<div id = gameTimer>You have ";
+      output += "<p class = red>"
+      output += timeLeft.toFixed(2);
+      output += " </p>seconds remaining!"
+      output += "</div>";
+      $("#gameTimer").replaceWith(output);
+      timeLeft -= .010;
+    }
+    else if (timeLeft <= 0)
     {
       stopTimer();
-      document.getElementById("gameTimer").innerHTML = "You have 0.00 seconds remaining!";
+      var output = "<div id = gameTimer>You have<p class = red>0.00</p> seconds remaining!</div>"
+      $("gameTimer").replaceWith(output);
     }
   }
   timerID = setInterval(countDown, 10);
