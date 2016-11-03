@@ -1,3 +1,4 @@
+var timerID;
 function startTimer(duration)
 {
   var timeLeft = duration;
