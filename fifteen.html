@@ -3,12 +3,17 @@
 <head>
 	<link href="fifteen.css" type="text/css"
 			rel = "stylesheet"/>
+			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+			<script src = "gameTimer.js"></script>
 	<title>Project 3</title>
 </head>
 <body>
 	<h1>Fifteen Puzzle</h1>
 	<p>The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly making moves that slide squares<br />
 	into the empty space. How quickly can you solve it?</p>
+	<div id = "gameTimer"></div>
+
+
 	<form>
 		<div id = "tiles"></div>
 		<center><input type = "submit" value = "Shuffle" name = "shuffButton"></center>
