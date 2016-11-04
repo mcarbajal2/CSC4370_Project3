@@ -1,32 +1,75 @@
 var gameArray = [];
-var size8 = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15',' '];
+var marioArray = ['MarioImage/1.png','MarioImage/2.png','MarioImage/3.png','MarioImage/4.png','MarioImage/5.png','MarioImage/6.png'
+,'MarioImage/7.png','MarioImage/8.png','MarioImage/9.png','MarioImage/10.png','MarioImage/11.png','MarioImage/12.png','MarioImage/13.png'
+,'MarioImage/14.png','MarioImage/15.png',' '];
+
+var values = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15',' '];
 var answerKey = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15',' '];
 var tilesSelectedThisTurnArray = [];
 var indicisSelectedThisTurnArray = [];
 
-
 function setupGame(duration)
 {
   stopTimer();
+  buildBoard();
+  shuffle();
   drawBoard();
-  startGame(duration);
+  startTimer(duration);
 }
 
-function startGame(duration)
+function startDemo(duration)
 {
-  startTimer(duration)
+  stopTimer();
+  buildBoard();
+  drawBoard();
+  startTimer(duration);
+}
+
+ function shuffle()
+{
+    var i = values.length;
+    var j;
+    var temp;
+
+    while(--i > 0)
+    {
+        j = Math.floor(Math.random() * (i+1));
+        temp = values[j];
+        values[j] = values[i];
+        values[i] = temp;
+
+        temp = gameArray[j];
+        gameArray[j] = gameArray[i];
+        gameArray[i] = temp;
+    }
+}
+
+function buildBoard()
+{
+  //re sort the values array
+  for(var i = 0; i < answerKey.length; i++)
+  {
+    values[i] = answerKey[i];
+  }
+
+  //build the game array
+  gameArray = [];
+  var output = "";
+  for(var i = 0; i < answerKey.length-1; i++)
+  {
+    output = '<div id="'+i+'" onclick="clicked(this)">';
+    output += '<img src = ';
+    output += marioArray[i];
+    output +='></img></div>';
+    gameArray.push(output);
+  }
+  output = '<div id="'+i+'" onclick="clicked(this)">'+marioArray[15]+'</div>';
+  gameArray.push(output);
 }
 
 function drawBoard()
 {
-  gameArray = [];
-  var output = "";
-  for(var i = 0; i < size8.length; i++)
-  {
-    output = '<div id="'+i+'" onclick="clicked(this)">'+answerKey[i]+'</div>';
-    gameArray.push(output);
-  }
-
+  //output the gameArray
   output = "";
   for(var i = 0; i < gameArray.length; i++)
   {
@@ -52,9 +95,9 @@ function clicked(tile)
     indicisSelectedThisTurnArray.push(index);
     //check to swap
 
-    if(isContentSwapable())
+    if(isValuesSwappable())
     {
-      if(isIndicesSwapable())
+      if(isIndicesSwappable())
       {
         swap();
       }
@@ -63,8 +106,6 @@ function clicked(tile)
     tilesSelectedThisTurnArray = [];
     indicisSelectedThisTurnArray = [];
   }
-
-
 }
 
 function find(contents)
@@ -81,12 +122,12 @@ function find(contents)
   }
 }
 
-function isContentSwapable()
+function isValuesSwappable()
 {
-  return tilesSelectedThisTurnArray[0] == " " || tilesSelectedThisTurnArray[1] == " "
+  return values[indicisSelectedThisTurnArray[0]] == " " || values[indicisSelectedThisTurnArray[1]] == " ";
 }
 
-function isIndicesSwapable()
+function isIndicesSwappable()
 {
   var index1 = indicisSelectedThisTurnArray[0];
   var index2 = indicisSelectedThisTurnArray[1];
@@ -109,6 +150,12 @@ function swap()
   gameArray[index2] = contents1;
 
 
+  var value1 = values[index1];
+  var value2 = values[index2];
+  values[index1] = value2;
+  values[index2] = value1;
+
+  //re draw array
   output = "";
   for(var i = 0; i < gameArray.length; i++)
   {
@@ -120,12 +167,11 @@ function swap()
 
 function isWin()
 {
-  for(var i = 0; i < gameArray.length; i++)
+  for(var i = 0; i < values.length; i++)
   {
-    var temp = gameArray[i];
-    var contents = $(temp).html();
+    var temp = values[i];
 
-    if(contents != answerKey[i])
+    if(temp != answerKey[i])
     {
       return;
     }
