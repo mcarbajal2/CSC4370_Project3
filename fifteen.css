@@ -1,20 +1,45 @@
-body {
+body
+{
 	background-image: url("background.png");
 	background-attachment: fixed;
 }
 
-h1 {
+h1
+{
 	text-align: center;
 }
 
-p {
+p
+{
 	text-align: center;
 }
 
-#tiles {
-	height: 400px;
+table
+{
 	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: yellow;
+}
+
+
+div#board
+{
+	background:#696969;
+	border:#999 1px solid;
+	width:450px;
+	height:450px;
+	padding:24px;
+  font-size:64px;
+	margin:0px auto;
+}
+
+div#board > div
+{
+	border:#000000 2px solid;
+	width:100px;
+	height:100px;
+	float:left;
+	margin:1px;
+	padding:1px;
+	font-size:64px;
+	cursor:pointer;
+	text-align:center;
 }

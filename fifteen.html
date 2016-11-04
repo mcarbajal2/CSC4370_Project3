@@ -1,30 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-<head>
-	<link href="fifteen.css" type="text/css"rel = "stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="gameTimer.css">
+	<head>
+		<link href="fifteen.css" type="text/css"rel = "stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="gameTimer.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src = "gameTimer.js"></script>
-	<script src = "gameSetup.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src = "gameTimer.js"></script>
+		<script src = "gameSetup.js"></script>
 
-	<title>Project 3</title>
-</head>
-<body>
-	<h1>Fifteen Puzzle</h1>
-	<p>The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly making moves that slide squares<br />
-	into the empty space. How quickly can you solve it?</p>
+		<title>Project 3</title>
+	</head>
 
-	<div id = "gameTimer"><p class = "green"></p></div>
+	<body>
+		<h1>Fifteen Puzzle</h1>
+		<p>The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly making moves that slide squares<br />
+		into the empty space. How quickly can you solve it?</p>
 
+		<div id = "gameTimer">You have<p class = "green"> 180.00 </p>seconds remaining!</div>
 
-	<form>
-		<div id = "tiles"></div>
+		<div id = "board"></div>
+
+		<form>
 		<center><input type = "submit" value = "Shuffle" name = "shuffButton" onclick="setupGame(180); return false"></center>
-	</form>
-	<p>American puzzle author and mathematician Sam Loyd is often falsely credited with creating the puzzle; indeed,<br />
-	Loyd claimed from 1891 until his death in 1911 that he invented it. The puzzle was actually created around 1874<br />
-	by Noyes Palmer Chapman, a postmaster in Canastota, New York.</p>
-</body>
+		</form>
+		<p>American puzzle author and mathematician Sam Loyd is often falsely credited with creating the puzzle; indeed,<br />
+				Loyd claimed from 1891 until his death in 1911 that he invented it. The puzzle was actually created around 1874<br />
+				by Noyes Palmer Chapman, a postmaster in Canastota, New York.
+		</p>
+	</body>
 </html>
