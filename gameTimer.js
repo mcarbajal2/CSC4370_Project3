@@ -38,7 +38,8 @@ function startTimer(duration)
     {
       stopTimer();
       var output = "<div id = gameTimer>You have<p class = red>0.00</p> seconds remaining!</div>"
-      $("gameTimer").replaceWith(output);
+      $("#gameTimer").replaceWith(output);
+      $("#board").html("You lose :(");
     }
   }
   timerID = setInterval(countDown, 10);
