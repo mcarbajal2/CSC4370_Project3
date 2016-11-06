@@ -181,7 +181,6 @@ function isWin()
       return;
     }
   }
-
-  $("#board").html("You win");
+  $("#board").html("You win :)");
   stopTimer();
 }
