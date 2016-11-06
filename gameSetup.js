@@ -81,6 +81,9 @@ function drawBoard()
 function clicked(tile)
 {
   var contents = $(tile).html();
+  var id = tile.id;
+
+  $('#'+id).css('border', 'solid 2px yellow');
 
   if(tilesSelectedThisTurnArray.length == 0)
   {
@@ -90,6 +93,7 @@ function clicked(tile)
   }
   else if(tilesSelectedThisTurnArray.length == 1)
   {
+    drawBoard();
     tilesSelectedThisTurnArray.push(contents);
     var index = find(contents);
     indicisSelectedThisTurnArray.push(index);
@@ -111,6 +115,7 @@ function clicked(tile)
 function find(contents)
 {
   var temp;
+
   for(var i = 0; i < gameArray.length; i++)
   {
     temp = gameArray[i];
