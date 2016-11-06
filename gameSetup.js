@@ -25,24 +25,55 @@ function startDemo(duration)
   startTimer(duration);
 }
 
- function shuffle()
+function shuffle()
 {
-    var i = values.length;
-    var j;
-    var temp;
+  var index = 15;
+  var random;
 
-    while(--i > 0)
+  for(var i = 0; i < 100; i++)
+  {
+    random = getRandom();
+
+    if((index + random < 16) && (index + random >= 0))
     {
-        j = Math.floor(Math.random() * (i+1));
-        temp = values[j];
-        values[j] = values[i];
-        values[i] = temp;
+      temp = values[index];
+      values[index] = values[index + random];
+      values[index + random] = temp;
 
-        temp = gameArray[j];
-        gameArray[j] = gameArray[i];
-        gameArray[i] = temp;
+      temp = gameArray[index];
+      gameArray[index] = gameArray[index + random];
+      gameArray[index + random] = temp;
+
+      index += random;
     }
+  }
 }
+
+function getRandom()
+{
+  var random = Math.floor(Math.random() * 4) + 1;
+
+  if(random == 1)
+  {
+    return -1;
+  }
+
+  if(random == 2)
+  {
+    return 1;
+  }
+
+  if(random == 3)
+  {
+    return -4;
+  }
+
+  if(random == 4)
+  {
+    return 4;
+  }
+}
+
 
 function buildBoard()
 {
