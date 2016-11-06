@@ -39,9 +39,3 @@ div#board > div
 	cursor:pointer;
 	text-align:center;
 }
-
-div#buttons {
-	width: 200px;
-	height: 600px;
-	float: right;
-}
