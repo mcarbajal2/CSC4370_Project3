@@ -1,10 +1,23 @@
 var gameArray = [];
-var marioArray = ['MarioImage/1.png','MarioImage/2.png','MarioImage/3.png','MarioImage/4.png','MarioImage/5.png','MarioImage/6.png'
+var marioArray1 = ['MarioImage/1.png','MarioImage/2.png','MarioImage/3.png','MarioImage/4.png','MarioImage/5.png','MarioImage/6.png'
 ,'MarioImage/7.png','MarioImage/8.png','MarioImage/9.png','MarioImage/10.png','MarioImage/11.png','MarioImage/12.png','MarioImage/13.png'
 ,'MarioImage/14.png','MarioImage/15.png',' '];
 
+var marioArray2 = ['MarioImage/2_1.png','MarioImage/2_2.png','MarioImage/2_3.png','MarioImage/2_4.png','MarioImage/2_5.png','MarioImage/2_6.png'
+,'MarioImage/2_7.png','MarioImage/2_8.png','MarioImage/2_9.png','MarioImage/2_10.png','MarioImage/2_11.png','MarioImage/2_12.png','MarioImage/2_13.png'
+,'MarioImage/2_14.png','MarioImage/2_15.png',' '];
+
+var marioArray3 = ['MarioImage/3_1.png','MarioImage/3_2.png','MarioImage/3_3.png','MarioImage/3_4.png','MarioImage/3_5.png','MarioImage/3_6.png'
+,'MarioImage/3_7.png','MarioImage/3_8.png','MarioImage/3_9.png','MarioImage/3_10.png','MarioImage/3_11.png','MarioImage/3_12.png','MarioImage/3_13.png'
+,'MarioImage/3_14.png','MarioImage/3_15.png',' '];
+
+var marioArray4 = ['MarioImage/4_1.png','MarioImage/4_2.png','MarioImage/4_3.png','MarioImage/4_4.png','MarioImage/4_5.png','MarioImage/4_6.png'
+,'MarioImage/4_7.png','MarioImage/4_8.png','MarioImage/4_9.png','MarioImage/4_10.png','MarioImage/4_11.png','MarioImage/4_12.png','MarioImage/4_13.png'
+,'MarioImage/4_14.png','MarioImage/4_15.png',' '];
+
 var values = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15',' '];
 var answerKey = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15',' '];
+var puzzleArray;
 var tilesSelectedThisTurnArray = [];
 var indicisSelectedThisTurnArray = [];
 
@@ -77,6 +90,26 @@ function getRandom()
 
 function buildBoard()
 {
+
+  var puzzle = $("#puzzle").val();
+
+  if(puzzle == "mario1")
+  {
+    puzzleArray = marioArray1;
+  }
+  else if(puzzle == "mario2")
+  {
+    puzzleArray = marioArray2;
+  }
+  else if(puzzle == "mario3")
+  {
+    puzzleArray = marioArray3;
+  }
+  else
+  {
+    puzzleArray = marioArray4;
+  }
+
   //re sort the values array
   for(var i = 0; i < answerKey.length; i++)
   {
@@ -90,11 +123,11 @@ function buildBoard()
   {
     output = '<div id="'+i+'" onclick="clicked(this)">';
     output += '<img src = ';
-    output += marioArray[i];
+    output += puzzleArray[i];
     output +='></img></div>';
     gameArray.push(output);
   }
-  output = '<div id="'+i+'" onclick="clicked(this)">'+marioArray[15]+'</div>';
+  output = '<div id="'+i+'" onclick="clicked(this)">'+puzzleArray[15]+'</div>';
   gameArray.push(output);
 }
 

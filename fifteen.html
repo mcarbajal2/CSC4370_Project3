@@ -18,12 +18,27 @@
 		into the empty space. How quickly can you solve it?</p>
 
 		<div id = "gameTimer">You have<p class = "green"> 180.00 </p>seconds remaining!</div>
-		
+
+		<div>
+			<p>Select your puzzle.</p>
+			<select id = "puzzle">
+  			<option value="mario1">Mario 1</option>
+  			<option value="mario2">Mario 2</option>
+  			<option value="mario3">Mario 3</option>
+  			<option value="mario4">Mario 4</option>
+			</select>
+		</div>
+
+		<br>
+
 		<div id = "board"></div>
+		<br>
 
 		<form>
 		<center><input type = "submit" value = "Shuffle" name = "shuffButton" onclick="setupGame(180); return false"></center>
 		</form>
+
+		<br>
 
 		<form>
 		<center><input type = "submit" value = "Demo" name = "Demo" onclick="startDemo(180); return false"></center>
@@ -33,5 +48,13 @@
 				Loyd claimed from 1891 until his death in 1911 that he invented it. The puzzle was actually created around 1874<br />
 				by Noyes Palmer Chapman, a postmaster in Canastota, New York.
 		</p>
+
+
+		<div>
+			<img src = "MarioImage/full.png"></img>
+			<img src = "MarioImage/full2.png"></img>
+			<img src = "MarioImage/full3.png"></img>
+			<img src = "MarioImage/full4.png"></img>
+		</div>
 	</body>
 </html>

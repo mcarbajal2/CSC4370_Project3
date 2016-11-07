@@ -16,6 +16,12 @@ p
 	color:#ffffff;
 }
 
+select
+{
+	display: block;
+	margin: 0 auto;
+}
+
 div#board
 {
 	background:#696969;
